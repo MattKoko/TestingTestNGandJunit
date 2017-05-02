@@ -1,4 +1,4 @@
-package TestingTestNgAndJUnit.CoffeeTests;
+package TestingTestNgAndJUnit.TestsCases.CoffeeTests;
 
 /**
  * Created by Matek on 02.05.2017.
