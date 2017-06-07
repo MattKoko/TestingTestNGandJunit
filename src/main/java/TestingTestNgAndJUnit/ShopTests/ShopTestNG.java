@@ -1,4 +1,4 @@
-package TestingTestNgAndJUnit.TestsCases.ShopTests;
+package TestingTestNgAndJUnit.ShopTests;
 
 import TestingTestNgAndJUnit.Pages.ShopPages.ShopContactUsPage;
 import TestingTestNgAndJUnit.Pages.ShopPages.ShopLoginPage;
