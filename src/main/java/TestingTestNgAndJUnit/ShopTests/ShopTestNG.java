@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -24,6 +25,7 @@ public class ShopTestNG {
     ShopMainPage shopMainPage;
     ShopLoginPage shopLoginPage;
     ShopContactUsPage shopContactUsPage;
+
 
 
     @BeforeClass
@@ -84,6 +86,27 @@ public class ShopTestNG {
         shopMainPage.fillSearchField();
         shopMainPage.clickSearchButton();
         List<WebElement> list = driver.findElements(By.xpath("//*[contains(text(),'" + "Showing 1 - 7 of 7 items" + "')]"));
+        Assert.assertTrue(list.size() > 0, "Text not found!");
+    }
+
+    @Test
+    public void AddingToCart() throws InterruptedException {
+        shopMainPage.clickWomenButton();
+        shopMainPage.clickTopsButton();
+        shopMainPage.clickBlousesButton();
+
+        //hover
+        WebElement ele=driver.findElement(By.xpath("//*[@id=\"center_column\"]/ul/li/div/div[1]/div/a[1]/img"));
+        Actions act=new Actions(driver);
+        act.moveToElement(ele).perform();
+        //end of hover
+        Thread.sleep(3000);
+        shopMainPage.clickAddToCartButton();
+        Thread.sleep(3000);
+        shopMainPage.clickContinueShoppingButton();
+        shopMainPage.clickCartButton();
+
+        List<WebElement> list = driver.findElements(By.xpath("//*[contains(text(),'" + "Blouse" + "')]"));
         Assert.assertTrue(list.size() > 0, "Text not found!");
     }
 

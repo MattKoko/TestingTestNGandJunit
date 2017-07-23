@@ -1,4 +1,4 @@
-package TestingTestNgAndJUnit.DateBase;
+package TestingTestNgAndJUnit.DateBaseTest;
 
 /**
  * Created by Matek on 02.05.2017.

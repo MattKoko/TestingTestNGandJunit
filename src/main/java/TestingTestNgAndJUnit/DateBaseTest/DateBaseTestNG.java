@@ -1,4 +1,4 @@
-package TestingTestNgAndJUnit.DateBase;
+package TestingTestNgAndJUnit.DateBaseTest;
 
 import TestingTestNgAndJUnit.Pages.DateBasePages.DateBaseMainPage;
 import org.openqa.selenium.WebDriver;
