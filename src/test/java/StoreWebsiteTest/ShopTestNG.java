@@ -27,7 +27,7 @@ public class ShopTestNG extends SetUpTest {
         List<WebElement> list = driver.findElements(By.xpath("//*[contains(text(),'" + "Welcome to your account." + "')]"));
         Assert.assertTrue(list.size() > 0, "Text not found!");
 
-        //asserta na koncu i cvos sprawdza
+       
         //        shopLoginPage.clickSingIn();
         //        ShopMyAccountPage shopMyAccountPage = new ShopMyAccountPage(driver);
 
