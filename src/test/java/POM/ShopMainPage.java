@@ -1,6 +1,6 @@
 package POM;
 
-import com.gargoylesoftware.htmlunit.Page;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -38,7 +38,7 @@ public class ShopMainPage {
 
     public ShopMainPage(WebDriver driver) {
         this.driver=driver;
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
     }
 
     public ShopLoginPage clickSingInButton() {

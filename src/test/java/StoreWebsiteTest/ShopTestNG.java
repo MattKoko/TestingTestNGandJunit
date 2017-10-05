@@ -16,8 +16,6 @@ import java.util.List;
 public class ShopTestNG extends SetUpTest {
 
 
-
-
     @Test
     public void loginToShopPage() {
         shopMainPage = new ShopMainPage(driver);
@@ -26,10 +24,6 @@ public class ShopTestNG extends SetUpTest {
 
         List<WebElement> list = driver.findElements(By.xpath("//*[contains(text(),'" + "Welcome to your account." + "')]"));
         Assert.assertTrue(list.size() > 0, "Text not found!");
-
-        //asserta na koncu i cvos sprawdza
-        //        shopLoginPage.clickSingIn();
-        //        ShopMyAccountPage shopMyAccountPage = new ShopMyAccountPage(driver);
 
     }
 
@@ -62,10 +56,10 @@ public class ShopTestNG extends SetUpTest {
         Assert.assertTrue(list.size() > 0, "Text not found!");
     }
 
-    @Test//(priority = 0, dependsOnMethods = "SearchingWorking")
+    @Test
     public void AddingToCart() throws InterruptedException {
         shopMainPage = new ShopMainPage(driver);
-        shopMainPage.clickWomenButton();
+        shopWomenPage = shopMainPage.clickWomenButton();
         shopTopsPage = shopWomenPage.clickTopsButton();
         shopBlousesPage = shopTopsPage.clickBlousesButton();
 
