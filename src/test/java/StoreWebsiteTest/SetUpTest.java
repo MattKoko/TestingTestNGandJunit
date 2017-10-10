@@ -22,6 +22,7 @@ public class SetUpTest {
     protected ShopWomenPage shopWomenPage;
     protected ShopBlousesPage shopBlousesPage;
     protected ShopTopsPage shopTopsPage;
+    protected ShopCartPage shopCartPage;
 
     @BeforeClass
     public void setUp(){

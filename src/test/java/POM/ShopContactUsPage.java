@@ -34,9 +34,14 @@ public class ShopContactUsPage {
         PageFactory.initElements(driver, this);
     }
 
-    public ShopContactUsPage chooseSubject() {
+    public ShopContactUsPage chooseSubjectToCustomer() {
         Select dropdown = new Select(subjectChoice);
         dropdown.selectByVisibleText("Customer service");
+        return this;
+    }
+    public ShopContactUsPage chooseSubjectToWebmaster() {
+        Select dropdown = new Select(subjectChoice);
+        dropdown.selectByVisibleText("Webmaster");
         return this;
     }
 
