@@ -96,7 +96,7 @@ public class ShopTestNG extends SetUpTest {
         shopMainPage = new ShopMainPage(driver);
         shopContactUsPage = shopMainPage.clickContactUsButton();
         shopContactUsPage.chooseSubjectToCustomer();
-////*[@id="desc_contact2"]
+
         List<WebElement> list = driver.findElements(By.xpath("//*[@id='desc_contact2' and not(contains(@style,'display: none'))]"));
         Assert.assertEquals(list.size(), 1);
     }
@@ -192,40 +192,44 @@ public class ShopTestNG extends SetUpTest {
     public void checkingFollowUsYouTubeNewTabOpening(){
         shopMainPage = new ShopMainPage(driver);
         shopMainPage.clickFollowUsYouTubeButton();
+        List<String> browserTabs = new ArrayList<String>(driver.getWindowHandles());
+        Assert.assertTrue(browserTabs.size()==2, "There is no new tab");
     }
 
     @Test
     public void checkingFollowUsGoogleNewTabOpening(){
         shopMainPage = new ShopMainPage(driver);
         shopMainPage.clickFollowUsGoogleButton();
+        List<String> browserTabs = new ArrayList<String>(driver.getWindowHandles());
+        Assert.assertTrue(browserTabs.size()==2, "There is no new tab");
     }
 
-//    @Test
-//    public void checkingAddingToCart1or1000() throws InterruptedException {
-//        shopMainPage = new ShopMainPage(driver);
-//
-//
-//        //hover
-//        WebElement ele=driver.findElement(By.xpath("//*[@id='homefeatured']/li[1]/div/div[1]/div/a[1]/img"));
-//        Actions act=new Actions(driver);
-//        act.moveToElement(ele).perform();
-//        Thread.sleep(3000);
-//        //end of hover
-//
-//        //Scroll down
-//        JavascriptExecutor jse = (JavascriptExecutor)driver;
-//        jse.executeScript("window.scrollBy(0,500)", "");
-//        // end of scroll down
-//
-//        shopMainPage.clickQuickViewFadedShortTshirt();
-//        Thread.sleep(3000);
-//        shopMainPage.fillQuantityFieldTo1();
-//        shopMainPage.clickAddtoCartButton();
-//        shopCartPage = shopMainPage.clickProceedToCheckoutButton();
-//
-//
-//
-//    }
+    @Test
+    public void checkingAddingToCart3() throws InterruptedException {
+        shopMainPage = new ShopMainPage(driver);
+
+        shopFadedShortTshirt = shopMainPage.clickOpenPageOfFadedShortTshirtButton();
+        shopFadedShortTshirt.fillQuantityFieldTo3().clickAddtoCartButton();
+        Thread.sleep(3000);
+        shopCartPage = shopFadedShortTshirt.clickProceedToCheckoutButton();
+
+        List<WebElement> list = driver.findElements(By.xpath("//*[contains(text(),'" + "3 Products" + "')]"));
+        Assert.assertTrue(list.size() > 0, "Text not found!");
+
+
+    }
+
+    @Test
+    public void checkingAddingToCart1003() throws InterruptedException {
+        shopMainPage = new ShopMainPage(driver);
+        shopFadedShortTshirt = shopMainPage.clickOpenPageOfFadedShortTshirtButton();
+        shopFadedShortTshirt.fillQuantityFieldTo1003().clickAddtoCartButton();
+        Thread.sleep(3000);
+        shopCartPage = shopFadedShortTshirt.clickProceedToCheckoutButton();
+        List<WebElement> list = driver.findElements(By.xpath("//*[contains(text(),'" + "3 Products" + "')]"));
+        Assert.assertTrue(list.size() > 0, "Text not found!");
+
+    }
 
 
 
