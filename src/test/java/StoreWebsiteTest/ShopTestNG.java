@@ -26,7 +26,6 @@ public class ShopTestNG extends SetUpTest {
 
         List<WebElement> list = driver.findElements(By.xpath("//*[contains(text(),'" + "Welcome to your account." + "')]"));
         Assert.assertTrue(list.size() > 0, "Text not found!");
-
     }
 
     @Test
@@ -107,8 +106,8 @@ public class ShopTestNG extends SetUpTest {
         shopContactUsPage = shopMainPage.clickContactUsButton();
         shopContactUsPage.chooseSubjectToWebmaster();
 
-        List<WebElement> list = driver.findElements(By.xpath("//*[contains(text(),'" + "If a technical problem occurs on this website" + "')]"));
-        Assert.assertTrue(list.size() > 0, "Text not found!");
+        List<WebElement> list = driver.findElements(By.xpath("//*[@id='desc_contact1' and not(contains(@style,'display: none'))]"));
+        Assert.assertEquals(list.size(), 1);
     }
 
 
@@ -140,23 +139,23 @@ public class ShopTestNG extends SetUpTest {
 
     }
 
-    @Test
-    public void checkingFollowUsTwitterURL(){
-        shopMainPage = new ShopMainPage(driver);
-        shopMainPage.clickFollowUsTwitterButton();
-    }
-
-    @Test
-    public void checkingFollowUsYouTubeURL(){
-        shopMainPage = new ShopMainPage(driver);
-        shopMainPage.clickFollowUsYouTubeButton();
-    }
-
-    @Test
-    public void checkingFollowUsGoogleURL(){
-        shopMainPage = new ShopMainPage(driver);
-        shopMainPage.clickFollowUsGoogleButton();
-    }
+//    @Test
+//    public void checkingFollowUsTwitterURL(){
+//        shopMainPage = new ShopMainPage(driver);
+//        shopMainPage.clickFollowUsTwitterButton();
+//    }
+//
+//    @Test
+//    public void checkingFollowUsYouTubeURL(){
+//        shopMainPage = new ShopMainPage(driver);
+//        shopMainPage.clickFollowUsYouTubeButton();
+//    }
+//
+//    @Test
+//    public void checkingFollowUsGoogleURL(){
+//        shopMainPage = new ShopMainPage(driver);
+//        shopMainPage.clickFollowUsGoogleButton();
+//    }
 
     @Test
     public void checkingFollowUsFacebookNewTabOpening(){
@@ -188,21 +187,21 @@ public class ShopTestNG extends SetUpTest {
 
     }
 
-    @Test
-    public void checkingFollowUsYouTubeNewTabOpening(){
-        shopMainPage = new ShopMainPage(driver);
-        shopMainPage.clickFollowUsYouTubeButton();
-        List<String> browserTabs = new ArrayList<String>(driver.getWindowHandles());
-        Assert.assertTrue(browserTabs.size()==2, "There is no new tab");
-    }
-
-    @Test
-    public void checkingFollowUsGoogleNewTabOpening(){
-        shopMainPage = new ShopMainPage(driver);
-        shopMainPage.clickFollowUsGoogleButton();
-        List<String> browserTabs = new ArrayList<String>(driver.getWindowHandles());
-        Assert.assertTrue(browserTabs.size()==2, "There is no new tab");
-    }
+//    @Test
+//    public void checkingFollowUsYouTubeNewTabOpening(){
+//        shopMainPage = new ShopMainPage(driver);
+//        shopMainPage.clickFollowUsYouTubeButton();
+//        List<String> browserTabs = new ArrayList<String>(driver.getWindowHandles());
+//        Assert.assertTrue(browserTabs.size()==2, "There is no new tab");
+//    }
+//
+//    @Test
+//    public void checkingFollowUsGoogleNewTabOpening(){
+//        shopMainPage = new ShopMainPage(driver);
+//        shopMainPage.clickFollowUsGoogleButton();
+//        List<String> browserTabs = new ArrayList<String>(driver.getWindowHandles());
+//        Assert.assertTrue(browserTabs.size()==2, "There is no new tab");
+//    }
 
     @Test
     public void checkingAddingToCart3() throws InterruptedException {
@@ -215,8 +214,6 @@ public class ShopTestNG extends SetUpTest {
 
         List<WebElement> list = driver.findElements(By.xpath("//*[contains(text(),'" + "3 Products" + "')]"));
         Assert.assertTrue(list.size() > 0, "Text not found!");
-
-
     }
 
     @Test
@@ -228,10 +225,6 @@ public class ShopTestNG extends SetUpTest {
         shopCartPage = shopFadedShortTshirt.clickProceedToCheckoutButton();
         List<WebElement> list = driver.findElements(By.xpath("//*[contains(text(),'" + "3 Products" + "')]"));
         Assert.assertTrue(list.size() > 0, "Text not found!");
-
     }
-
-
-
 
 }
